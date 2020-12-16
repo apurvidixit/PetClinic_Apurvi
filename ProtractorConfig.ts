@@ -53,7 +53,8 @@ export let config: Config = {
 
   cucumberOpts: {
     // require step definitions
-    //tags:{"@smoke, @regression"},
+    //tags:['@smoke', '@regression'],
+    tags:['@smoke'],
     //tags:"@regression",
     format: 'json:./cucumberreport.json',
     strict: true,
@@ -68,10 +69,10 @@ export let config: Config = {
 
     browser.ignoreSynchronization = false;
     browser.driver.manage().window().maximize();
-    var AllureReporter = require('jasmine-allure-reporter');
-    jasmine.getEnv().addReporter(new AllureReporter({
-      resultsDir: 'allure-results'
-    }));
+    // var AllureReporter = require('jasmine-allure-reporter');
+    // jasmine.getEnv().addReporter(new AllureReporter({
+    //   resultsDir: 'allure-results'
+    // }));
   },
 
   onComplete: () => {

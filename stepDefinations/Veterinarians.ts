@@ -29,7 +29,7 @@ Given('User is on Veterinarians', async function () {
   await browser.sleep(3000);
   let newvet = await vetObj.NewVeterians.getAttribute("innerText");
   await console.log(newvet);
-  expect(await vetObj.NewVeterians.getAttribute("innerText")).to.equals("New Veterians");
+  expect(await vetObj.NewVeterians.getAttribute("innerText")).to.equals("New Veterinarian");
 
 });
 
@@ -42,4 +42,9 @@ Then('User should able to see First Name', async function () {
 });
 
 
-
+Then('User should able to see Last Name',async function () {
+  await browser.sleep(5000);
+  let lastn = await vetObj.LastName.getAttribute("innerText");
+  await console.log(lastn);
+  expect(await vetObj.LastName.getAttribute("innerText")).to.equals("Last Name");
+});
