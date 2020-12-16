@@ -6,6 +6,7 @@ import { browser, by, element, ElementFinder, protractor } from "protractor"
 import TestData from "../TestData/userData";
 
 
+
 const chai = require("chai").use(require("chai-as-promised"));
 const expect = chai.expect;
 
@@ -16,10 +17,29 @@ let HomeObj = new HomePageObjects();
 let logObj = new LoginPageObjects();
 let vetObj = new VeterinariansObjects();
 
-Then('User should navigate to Veterinarians',async function () {
-    
-    await vetObj.Veterinarians.click();
-    await browser.sleep(3000);
-    await vetObj.vetAdd.click();
-    await browser.sleep(3000);
-  });
+Then('User should navigate to Veterinarians add user', async function () {
+
+  await vetObj.Veterinarians.click();
+  await browser.sleep(3000);
+  await vetObj.vetAdd.click();
+  await browser.sleep(3000);
+});
+
+Given('User is on Veterinarians', async function () {
+  await browser.sleep(3000);
+  let newvet = await vetObj.NewVeterians.getAttribute("innerText");
+  await console.log(newvet);
+  expect(await vetObj.NewVeterians.getAttribute("innerText")).to.equals("New Veterians");
+
+});
+
+Then('User should able to see First Name', async function () {
+  await browser.sleep(5000);
+  let firstn = await vetObj.FirstName.getAttribute("innerText");
+  await console.log(firstn);
+  expect(await vetObj.FirstName.getAttribute("innerText")).to.equals("First Name");
+
+});
+
+
+

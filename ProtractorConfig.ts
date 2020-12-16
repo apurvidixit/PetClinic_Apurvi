@@ -32,7 +32,7 @@ export let config: Config = {
 
     chromeOptions: {
 
-      args: ["--incognito"],
+      // args: ["--incognito"],
 
       prefs: {
 
@@ -53,7 +53,8 @@ export let config: Config = {
 
   cucumberOpts: {
     // require step definitions
-    //tags:"@login",
+    //tags:{"@smoke, @regression"},
+    //tags:"@regression",
     format: 'json:./cucumberreport.json',
     strict: true,
 
@@ -67,7 +68,12 @@ export let config: Config = {
 
     browser.ignoreSynchronization = false;
     browser.driver.manage().window().maximize();
+    var AllureReporter = require('jasmine-allure-reporter');
+    jasmine.getEnv().addReporter(new AllureReporter({
+      resultsDir: 'allure-results'
+    }));
   },
+
   onComplete: () => {
     var options = {
       theme: 'bootstrap',
@@ -90,4 +96,5 @@ export let config: Config = {
     reporter.generate(options);
 
   }
+
 };
