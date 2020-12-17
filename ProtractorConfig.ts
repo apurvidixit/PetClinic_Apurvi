@@ -73,6 +73,12 @@ export let config: Config = {
     // jasmine.getEnv().addReporter(new AllureReporter({
     //   resultsDir: 'allure-results'
     // }));
+
+    var reporter = require('cucumberjs-allure-reporter');
+    reporter.config(
+      //resultsDir: 'Reports'
+    );
+    module.exports = reporter;
   },
 
   onComplete: () => {

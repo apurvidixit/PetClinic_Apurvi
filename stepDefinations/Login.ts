@@ -11,7 +11,7 @@ let logObj = new LoginPageObjects();
 let HomeObj = new HomePageObjects();
 
 Given('User will navigate to Petclinic url', async function () {
-    await browser.get('http://localhost:4200/petclinic/');
+    await browser.get('http://petclinicui.e46708b92c054086909b.eastus.aksapp.io/petclinic/');
     await browser.sleep(1000);
 });
 

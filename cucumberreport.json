@@ -28,7 +28,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 27000000
+              "duration": 24000000
             }
           },
           {
@@ -41,7 +41,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 29868000000
+              "duration": 17294000000
             }
           },
           {
@@ -54,7 +54,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 391000000
+              "duration": 332000000
             }
           },
           {
@@ -67,7 +67,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 146000000
+              "duration": 108000000
             }
           },
           {
@@ -80,7 +80,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 8649000000
+              "duration": 7978000000
             }
           },
           {
@@ -91,7 +91,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 735000000
+              "duration": 712000000
             },
             "embeddings": [
               {
@@ -146,9 +146,8 @@
               "location": "stepDefinations\\Veterinarians.ts:28"
             },
             "result": {
-              "status": "failed",
-              "duration": 6095000000,
-              "error_message": "AssertionError\n    + expected - actual\n\n    -New Veterinarian\n    +New Veterinariannp\n\n    at World.<anonymous> (I:\\Petclinic\\stepDefinations\\Veterinarians.ts:32:66)\n    at Generator.next (<anonymous>)\n    at fulfilled (I:\\Petclinic\\JSFiles\\stepDefinations\\Veterinarians.js:5:58)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+              "status": "passed",
+              "duration": 3512000000
             }
           },
           {
@@ -160,7 +159,8 @@
               "location": "stepDefinations\\Veterinarians.ts:36"
             },
             "result": {
-              "status": "skipped"
+              "status": "passed",
+              "duration": 5503000000
             }
           },
           {
@@ -171,7 +171,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 631000000
+              "duration": 639000000
             },
             "embeddings": [
               {
@@ -226,9 +226,8 @@
               "location": "stepDefinations\\Veterinarians.ts:28"
             },
             "result": {
-              "status": "failed",
-              "duration": 3440000000,
-              "error_message": "AssertionError\n    + expected - actual\n\n    -New Veterinarian\n    +New Veterinariannp\n\n    at World.<anonymous> (I:\\Petclinic\\stepDefinations\\Veterinarians.ts:32:66)\n    at Generator.next (<anonymous>)\n    at fulfilled (I:\\Petclinic\\JSFiles\\stepDefinations\\Veterinarians.js:5:58)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+              "status": "passed",
+              "duration": 3391000000
             }
           },
           {
@@ -240,7 +239,9 @@
               "location": "stepDefinations\\Veterinarians.ts:45"
             },
             "result": {
-              "status": "skipped"
+              "status": "failed",
+              "duration": 5216000000,
+              "error_message": "InvalidSelectorError: invalid selector: Unable to locate an element with the xpath expression //*[@id='vet'/div[3]/label because of the following error:\nSyntaxError: Failed to execute 'evaluate' on 'Document': The string '//*[@id='vet'/div[3]/label' is not a valid XPath expression.\n  (Session info: chrome=87.0.4280.88)\n  (Driver info: chromedriver=87.0.4280.20 (c99e81631faa0b2a448e658c0dbd8311fb04ddbd-refs/branch-heads/4280@{#355}),platform=Windows NT 6.3.9600 x86_64)\n    at Object.checkLegacyResponse (I:\\Petclinic\\node_modules\\selenium-webdriver\\lib\\error.js:546:15)\n    at parseHttpResponse (I:\\Petclinic\\node_modules\\selenium-webdriver\\lib\\http.js:509:13)\n    at I:\\Petclinic\\node_modules\\selenium-webdriver\\lib\\http.js:441:30\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)Error\n    at ElementArrayFinder.applyAction_ (I:\\Petclinic\\node_modules\\protractor\\built\\element.js:459:27)\n    at ElementArrayFinder.<computed> [as getAttribute] (I:\\Petclinic\\node_modules\\protractor\\built\\element.js:91:29)\n    at ElementFinder.<computed> [as getAttribute] (I:\\Petclinic\\node_modules\\protractor\\built\\element.js:831:22)\n    at World.<anonymous> (I:\\Petclinic\\stepDefinations\\Veterinarians.ts:47:37)\n    at Generator.next (<anonymous>)\n    at fulfilled (I:\\Petclinic\\JSFiles\\stepDefinations\\Veterinarians.js:5:58)"
             }
           },
           {
@@ -251,7 +252,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 653000000
+              "duration": 660000000
             },
             "embeddings": [
               {
@@ -268,7 +269,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2000000
+              "duration": 1000000
             }
           }
         ]
