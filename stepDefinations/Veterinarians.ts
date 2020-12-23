@@ -42,9 +42,29 @@ Then('User should able to see First Name', async function () {
 });
 
 
-Then('User should able to see Last Name',async function () {
+Then('User should able to see Last Name', async function () {
   await browser.sleep(5000);
   let lastn = await vetObj.LastName.getAttribute("innerText");
   await console.log(lastn);
   expect(await vetObj.LastName.getAttribute("innerText")).to.equals("Last Name");
+});
+
+Then('User should able to see Type', async function () {
+  await browser.sleep(5000);
+  let lastn = await vetObj.Type.getAttribute("innerText");
+  await console.log(lastn);
+  expect(await vetObj.Type.getAttribute("innerText")).to.equals("Type");
+});
+
+Then('User should enter details and save vet', async function () {
+  await browser.sleep(5000);
+  await vetObj.FirstName.sendKeys("vbn");
+  await browser.sleep(5000);
+  await vetObj.LastName.sendKeys("yhn");
+  await vetObj.Type.click();
+  await browser.sleep(5000);
+  await vetObj.Radiologytype.click();
+
+
+
 });

@@ -16,9 +16,13 @@ Feature: Veterinarians
         Given User is on Veterinarians
         Then User should able to see Last Name
 
-# Scenario: Verify User will able to see Type attribute in Veterinarians
-#     Given User is on Veterinarians
-#     Then User should able to see Type
+    Scenario: Verify User will able to see Type attribute in Veterinarians
+        Given User is on Veterinarians
+        Then User should able to see Type
+
+    # Scenario: Verify User will able to see TAdd vet in Veterinarians
+    #     Given User is on Veterinarians
+    #     Then User should enter details and save vet
 
 # Scenario: Verify User will able to see Back attribute in Veterinarians
 #     Given User is on Veterinarians

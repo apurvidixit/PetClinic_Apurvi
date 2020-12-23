@@ -7,11 +7,14 @@ export class VeterinariansObjects {
     Veterinarians: ElementFinder;
     PetTypes: ElementFinder;
     Specialties: ElementFinder;
-    vetAdd:ElementFinder;
-    NewVeterians:ElementFinder;
-    FirstName:ElementFinder;
-    LastName:ElementFinder;
-    Type:ElementFinder;
+    vetAdd: ElementFinder;
+    NewVeterians: ElementFinder;
+    FirstName: ElementFinder;
+    LastName: ElementFinder;
+    Type: ElementFinder;
+    Radiologytype: ElementFinder;
+    FirstName_field: ElementFinder;
+    LastName_field: ElementFinder;
 
     constructor() {
         this.HomeMenu = element(by.xpath("//*[@class='nav navbar-nav']/li[1]/a"));
@@ -19,12 +22,17 @@ export class VeterinariansObjects {
         this.Veterinarians = element(by.xpath("//*[@class='nav navbar-nav']/li[3]/a"));
         this.PetTypes = element(by.xpath("//*[@class='nav navbar-nav']/li[4]/a"));
         this.Specialties = element(by.xpath("//*[@class='nav navbar-nav']/li[5]/a"));
-        this.vetAdd= element(by.xpath("/html/body/app-root/div[1]/nav/div/ul/li[3]/ul/li[2]/a"));
-        this.NewVeterians=element(by.xpath("/html/body/app-root/app-vet-add/div/div/h2"));
+        this.vetAdd = element(by.xpath("/html/body/app-root/div[1]/nav/div/ul/li[3]/ul/li[2]/a"));
+        this.NewVeterians = element(by.xpath("/html/body/app-root/app-vet-add/div/div/h2"));
 
-        this.FirstName=element(by.xpath("//*[@id='vet']/div[2]/label"));
-        this.LastName=element(by.xpath("//*[@id='vet'/div[3]/label"));
-        this.Type=element(by.xpath("//*[@id='vet']/div[4]/div/label"))
+        this.FirstName = element(by.xpath("//*[@id='vet']/div[2]/label"));
+        this.LastName = element(by.xpath("//*[@id='vet'/div[3]/label"));
+        this.Type = element(by.xpath("//*[@id='vet']/div[4]/div/label"));
+
+        this.FirstName_field = element(by.xpath("//*[@id='firstName']"));
+        this.LastName_field = element(by.xpath("//*[@id='lastName']"));
+
+        this.Radiologytype = element(by.xpath("//*[@id='specialties']/option[1]"));
     }
 
 

@@ -54,7 +54,7 @@ export let config: Config = {
   cucumberOpts: {
     // require step definitions
     //tags:['@smoke', '@regression'],
-    tags:['@smoke'],
+    //tags:['@smoke'],
     //tags:"@regression",
     format: 'json:./cucumberreport.json',
     strict: true,
@@ -74,11 +74,11 @@ export let config: Config = {
     //   resultsDir: 'allure-results'
     // }));
 
-    var reporter = require('cucumberjs-allure-reporter');
-    reporter.config(
-      //resultsDir: 'Reports'
-    );
-    module.exports = reporter;
+    // var reporter = require('cucumberjs-allure-reporter');
+    // reporter.config(
+    //   //resultsDir: 'Reports'
+    // );
+    // module.exports = reporter;
   },
 
   onComplete: () => {
