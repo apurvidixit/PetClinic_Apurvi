@@ -10,6 +10,5 @@ Before(async function () {
 After(async function (scenario) {
   //This hook will be executed before scenarios tagged with @foo
   const screenshot = await browser.takeScreenshot();
-  this.attach(screenshot, "image/png");
- 
+  this.attach(screenshot, "image/png")
 });
