@@ -28,11 +28,14 @@ export let config: Config = {
   capabilities:
   {
     browserName: 'chrome',
+    // browserName: 'firefox',
+
+    // 'moz:firefoxOptions': {
+    //   'args': ['--safe-mode']
+    // }
 
     chromeOptions: {
-
       // args: ["--incognito"],
-
       prefs: {
       }
     }
