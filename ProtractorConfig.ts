@@ -1,7 +1,7 @@
 import { Config, browser } from "protractor";
 let reporter = require('cucumber-html-reporter');
+const globalAny: any = global;
 
-//var  Feature = 'APITestingDemo';
 
 let today = new Date();
 let dd = String(today.getDate()).padStart(2, '0');
@@ -14,7 +14,7 @@ let ReportDate = yyyy + '-' + mm + '-' + dd;
 export let config: Config = {
 
   allScriptsTimeout: 100000,
-  getPageTimeout: 100000,
+  // getPageTimeout: 100000,
   // The address of a running selenium server.
   //seleniumAddress: 'http://localhost:4444/wd/hub',
   directConnect: true,
@@ -22,7 +22,6 @@ export let config: Config = {
   SELENIUM_PROMISE_MANAGER: false,
   framework: 'custom',
   frameworkPath: require.resolve('protractor-cucumber-framework'),
-
 
   // Capabilities to be passed to the webdriver instance.
 
@@ -35,27 +34,23 @@ export let config: Config = {
       // args: ["--incognito"],
 
       prefs: {
-
-        download: {
-          prompt_for_download: false,
-          directory_upgrade: true,
-          default_directory: './Download/'
-        }
       }
     }
   },
 
   specs: [
     '../features/login.feature',
+    '../features/Main_Scenarios.feature',
     //'../features/homePage.feature',
-    '../features/Veterinarians.feature',
+    // '../features/newOwner.feature',
+    //'../features/Veterinarians.feature',
   ],
 
   cucumberOpts: {
     // require step definitions
     //tags:['@smoke', '@regression'],
     //tags:['@smoke'],
-    //tags:"@regression",
+    
     format: 'json:./cucumberreport.json',
     strict: true,
 
@@ -69,16 +64,8 @@ export let config: Config = {
 
     browser.ignoreSynchronization = false;
     browser.driver.manage().window().maximize();
-    // var AllureReporter = require('jasmine-allure-reporter');
-    // jasmine.getEnv().addReporter(new AllureReporter({
-    //   resultsDir: 'allure-results'
-    // }));
-
-    // var reporter = require('cucumberjs-allure-reporter');
-    // reporter.config(
-    //   //resultsDir: 'Reports'
-    // );
-    // module.exports = reporter;
+    const chai = require("chai").use(require("chai-as-promised"));
+    globalAny.chai = chai;
   },
 
   onComplete: () => {

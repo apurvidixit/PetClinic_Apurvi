@@ -1,5 +1,5 @@
 import { ElementFinder, element, by, ElementArrayFinder } from "protractor";
-import locators from "../TestData/webObjects";
+
 
 export class VeterinariansObjects {
     HomeMenu: ElementFinder;
@@ -15,6 +15,10 @@ export class VeterinariansObjects {
     Radiologytype: ElementFinder;
     FirstName_field: ElementFinder;
     LastName_field: ElementFinder;
+    Pagename: ElementFinder;
+    vetAll: ElementFinder;
+    VeterinariansList: ElementFinder;
+    vetListTableData:ElementArrayFinder;
 
     constructor() {
         this.HomeMenu = element(by.xpath("//*[@class='nav navbar-nav']/li[1]/a"));
@@ -23,8 +27,9 @@ export class VeterinariansObjects {
         this.PetTypes = element(by.xpath("//*[@class='nav navbar-nav']/li[4]/a"));
         this.Specialties = element(by.xpath("//*[@class='nav navbar-nav']/li[5]/a"));
         this.vetAdd = element(by.xpath("/html/body/app-root/div[1]/nav/div/ul/li[3]/ul/li[2]/a"));
+        this.vetAll = element(by.xpath("/html/body/app-root/div[1]/nav/div/ul/li[3]/ul/li[1]/a"));
         this.NewVeterians = element(by.xpath("/html/body/app-root/app-vet-add/div/div/h2"));
-
+        this.VeterinariansList = element(by.xpath("//*[@id='vets']/tbody"))
         this.FirstName = element(by.xpath("//*[@id='vet']/div[2]/label"));
         this.LastName = element(by.xpath("//*[@id='vet'/div[3]/label"));
         this.Type = element(by.xpath("//*[@id='vet']/div[4]/div/label"));
@@ -33,6 +38,8 @@ export class VeterinariansObjects {
         this.LastName_field = element(by.xpath("//*[@id='lastName']"));
 
         this.Radiologytype = element(by.xpath("//*[@id='specialties']/option[1]"));
+        this.Pagename = element(by.xpath("/html/body/app-root/app-vet-list/div/div/h2"));
+        this.vetListTableData = element.all(by.id("vets"));
     }
 
 

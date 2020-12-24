@@ -1,5 +1,4 @@
 import { ElementFinder, element, by, ElementArrayFinder } from "protractor";
-import locators from "../TestData/webObjects";
 
 export class HomePageObjects {
     HomeMenu: ElementFinder;

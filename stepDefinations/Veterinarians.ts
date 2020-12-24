@@ -5,28 +5,26 @@ import { VeterinariansObjects } from "../pageObjects/VeterinariansObjects";
 import { browser, by, element, ElementFinder, protractor } from "protractor"
 import TestData from "../TestData/userData";
 
-
-
-const chai = require("chai").use(require("chai-as-promised"));
-const expect = chai.expect;
+const expect = global['chai'].expect;
 
 var { setDefaultTimeout } = require('cucumber');
 setDefaultTimeout(70 * 1000);
-
+var until = protractor.ExpectedConditions;
 let HomeObj = new HomePageObjects();
 let logObj = new LoginPageObjects();
 let vetObj = new VeterinariansObjects();
 
-Then('User should navigate to Veterinarians add user', async function () {
 
+
+Then('User should navigate to Veterinarians add user', async function () {
+  await browser.wait(until.elementToBeClickable(vetObj.Veterinarians), 20000, 'Element is not present');
   await vetObj.Veterinarians.click();
-  await browser.sleep(3000);
+  await browser.wait(until.elementToBeClickable(vetObj.vetAdd), 20000, 'Element is not present');
   await vetObj.vetAdd.click();
-  await browser.sleep(3000);
 });
 
 Given('User is on Veterinarians', async function () {
-  await browser.sleep(3000);
+  await browser.wait(until.elementToBeClickable(vetObj.NewVeterians), 20000, 'Element is not present');
   let newvet = await vetObj.NewVeterians.getAttribute("innerText");
   await console.log(newvet);
   expect(await vetObj.NewVeterians.getAttribute("innerText")).to.equals("New Veterinarian");
@@ -34,7 +32,7 @@ Given('User is on Veterinarians', async function () {
 });
 
 Then('User should able to see First Name', async function () {
-  await browser.sleep(5000);
+ 
   let firstn = await vetObj.FirstName.getAttribute("innerText");
   await console.log(firstn);
   expect(await vetObj.FirstName.getAttribute("innerText")).to.equals("First Name");
@@ -56,15 +54,3 @@ Then('User should able to see Type', async function () {
   expect(await vetObj.Type.getAttribute("innerText")).to.equals("Type");
 });
 
-Then('User should enter details and save vet', async function () {
-  await browser.sleep(5000);
-  await vetObj.FirstName.sendKeys("vbn");
-  await browser.sleep(5000);
-  await vetObj.LastName.sendKeys("yhn");
-  await vetObj.Type.click();
-  await browser.sleep(5000);
-  await vetObj.Radiologytype.click();
-
-
-
-});

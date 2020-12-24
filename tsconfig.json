@@ -12,6 +12,7 @@
 "exclude": [
     "node_modules",
     "asyncAwait",
-    "plugins.ts"
+    "plugins.ts",
+    "typescript"
   ]
 }

@@ -5,9 +5,7 @@ import { browser, by, element, ElementFinder, protractor } from "protractor"
 import TestData from "../TestData/userData";
 import { PetTypesPageObjects } from "../pageObjects/PetTypesPageObjects";
 
-
-const chai = require("chai").use(require("chai-as-promised"));
-const expect = chai.expect;
+const expect = global['chai'].expect;
 
 var { setDefaultTimeout } = require('cucumber');
 setDefaultTimeout(70 * 1000);

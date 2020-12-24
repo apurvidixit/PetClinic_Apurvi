@@ -12,7 +12,7 @@
     "Webdriver_update": "./node_modules/.bin/webdriver-manager update",
     "clean": "./node_modules/.bin/webdriver-manager clean"
   },
-  "author": "Vikram",
+  "author": "Apurvi",
   "license": "ISC",
   "dependencies": {
     "@typed/hashmap": "^1.0.1",

@@ -43,8 +43,3 @@ When('User enter valid {string} {string} {string} {string} {string}', async func
 When('User clicks on Add Owner button on New Owner page', async function () {
     await newOwnerObj.AddOwnerButton.click();
 });
-Then('User should be navigate on Owners page and added owner should be displayed at last', async function () {
-    let pagename = await HomeObj.PageName.getText();
-    await console.log("page name is : " + pagename);
-    //await newOwnerObj.AddOwnerButton.click();
-});

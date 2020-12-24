@@ -13,8 +13,8 @@ Feature: User going to validate New Owner Page for Petclinic application
         Then User should be navigate on Owners page and added owner should be displayed at last
 
         Examples:
-            | First_Name | Last_Name | Address             | City        | Telephone |
-            | James      | Butt      | 6649 N Blue Gum St  | New Orleans | 70116     |
-            | Josephine  | Darakjy   | 4 B Blue Ridge Blvd | Brighton    | 5248      |
+            | First_Name | Last_Name | Address | City | Telephone |
+# | James      | Butt      | 6649 N Blue Gum St  | New Orleans | 70116     |
+# | Josephine  | Darakjy   | 4 B Blue Ridge Blvd | Brighton    | 5248      |
 
 
