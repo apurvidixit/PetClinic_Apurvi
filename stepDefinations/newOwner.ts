@@ -14,7 +14,7 @@ let newOwnerObj = new newOwnerPageObject();
 
 Given('User is on New Owner page', async function () {
     let pagename = await HomeObj.PageName.getText();
-    await console.log("page name is : " + pagename);
+    console.log("page name is : " + pagename);
 });
 When('User enter valid First Name, Last Name, Address, City, Telephone', async function () {
     let firstName = testdata.userData.OwnerData.FirstName;

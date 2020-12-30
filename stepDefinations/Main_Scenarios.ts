@@ -19,6 +19,28 @@ let newOwnerObj = new newOwnerPageObject();
 
 var until = protractor.ExpectedConditions;
 
+
+Given('User is on Petclinic home page', async function () {
+    await logObj.WelcomeMsg.isDisplayed().then(async function (result) {
+        await expect(true).to.equal(result);
+    });
+});
+
+When('User clicks on owners tab', async function () {
+    await HomeObj.Owners.click();
+});
+
+
+Then('ALL and ADD NEW owners sub-menus should be displayed', async function () {
+    let firstMenu = await HomeObj.AllOwners.getText();
+    await expect("ALL").to.equal(firstMenu);
+    console.log("first drop-down menue is : " + firstMenu);
+
+    let secondMenu = await HomeObj.AddNewOwner.getText();
+    await expect("ADD NEW").to.equal(secondMenu);
+    console.log("second drop-down menue is : " + secondMenu);
+});
+
 When('User clicks on Peter McTavish', async function () {
     let count = await newOwnerObj.OwnerList.all(by.tagName("tr")).count();
     console.log(count);
@@ -59,7 +81,7 @@ When('User clicks on ALL veterinarians', async function () {
     await browser.wait(until.elementToBeClickable(vetObj.vetAll), 20000, 'Element is not present');
     await vetObj.vetAll.click();
     let pagename = await vetObj.Pagename.getText();
-    await console.log("page name is : " + pagename);
+    console.log("page name is : " + pagename);
 });
 
 
@@ -69,10 +91,10 @@ Then('Number of radiology veterinarians will display', async function () {
     let spec = 0;
     await vetObj.vetListTableData.all(by.tagName("tr")).all(by.tagName("td")).each(async function (item) {
         await item!.getText().then(async function (result) {
-            await console.log(result);
+            console.log(result);
             if (result.indexOf(specialties) >= 0) {
                 spec = await spec + 1;
-                await console.log("Number of", specialties, "=", spec);
+                console.log("Number of", specialties, "=", spec);
             }
         });
     });
@@ -83,14 +105,14 @@ Then('User should be navigate on Owners page and added owner should be displayed
 
     await browser.wait(until.visibilityOf(HomeObj.PageName), 20000, 'Taking too long to load');
     let pagename = await HomeObj.PageName.getText();
-    await console.log("page name : " + pagename);
+    console.log("page name : " + pagename);
     await browser.refresh();
     await browser.wait(until.visibilityOf(newOwnerObj.OwnerList), 20000, 'Taking too long to load');
     let ownerDetails = await newOwnerObj.OwnerList.all(by.tagName("tr")).last();
     await browser.actions().mouseMove(ownerDetails).perform();
     let owner_Name = await ownerDetails.getText();
     await browser.wait(until.elementToBeClickable(ownerDetails), 20000, 'Element taking too long to appear in the DOM');
-    await console.log("Added owner details : " + owner_Name);
+    console.log("Added owner details : " + owner_Name);
     await expect(testdata.userData.OwnerData.OwnerDetail).to.equal(owner_Name);
 
 });

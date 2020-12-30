@@ -28,25 +28,18 @@ export let config: Config = {
   capabilities:
   {
     browserName: 'chrome',
-    // browserName: 'firefox',
+    //browserName: 'firefox',
 
     // 'moz:firefoxOptions': {
     //   'args': ['--safe-mode']
-    // }
-
-    chromeOptions: {
-      // args: ["--incognito"],
-      prefs: {
-      }
-    }
+    // },
+    
   },
 
   specs: [
     '../features/login.feature',
     '../features/Main_Scenarios.feature',
-    //'../features/homePage.feature',
-    // '../features/newOwner.feature',
-    //'../features/Veterinarians.feature',
+    
   ],
 
   cucumberOpts: {
