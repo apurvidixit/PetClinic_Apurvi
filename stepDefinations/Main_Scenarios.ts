@@ -31,6 +31,50 @@ When('User clicks on owners tab', async function () {
 });
 
 
+Given('User is on Owners tab', async function () {
+    let Owners = await HomeObj.Owners.getAttribute("innerText");
+    console.log(" Tab name is : " + Owners);
+    await expect("OWNERS").to.equal(Owners);
+});
+When('User clicks on ALL sub-menu', async function () {
+    await HomeObj.AllOwners.click();
+    await browser.sleep(2000);
+});
+
+Then('Owners list should be displayed', async function () {
+    // await HomeObj.OwnerList.isDisplayed().then(async function (result) {
+    //     await expect(true).to.equal(result);
+    // });
+    await browser.sleep(2000);
+    let page = await HomeObj.PageName.getText();
+    console.log(" page name is : " + page);
+
+});
+Given('User is on All Owners list page', async function () {
+    await browser.sleep(3000);
+    let pagename = await HomeObj.PageName.getText();
+    console.log("page name is : " + pagename);
+});
+When('User clicks on Add Owner button', async function () {
+    await HomeObj.AddOwnerButton.click();
+});
+Then('Add New Owner page should be displayed', async function () {
+    await HomeObj.PageName.isDisplayed().then(async function (result) {
+        await expect(true).to.equal(result);
+    });
+    let pagename = await HomeObj.PageName.getText();
+    console.log("page name is : " + pagename);
+});
+When('User clicks on ADD NEW sub-menu', async function () {
+    await HomeObj.AddNewOwner.click();
+});
+Then('New Owner page should get displayed', async function () {
+    await HomeObj.PageName.isDisplayed().then(async function (result) {
+        await expect(true).to.equal(result);
+    });
+});
+
+
 Then('ALL and ADD NEW owners sub-menus should be displayed', async function () {
     let firstMenu = await HomeObj.AllOwners.getText();
     await expect("ALL").to.equal(firstMenu);
@@ -56,6 +100,42 @@ When('User clicks on Peter McTavish', async function () {
     }
 });
 
+When('User enter valid {string} {string} {string} {string} {string}', async function (string, string2, string3, string4, string5) {
+    await newOwnerObj.FirstName.sendKeys(string);
+    await newOwnerObj.LastName.sendKeys(string2);
+    await newOwnerObj.Address.sendKeys(string3);
+    await newOwnerObj.City.sendKeys(string4);
+    await newOwnerObj.Telephone.sendKeys(string5);
+
+});
+
+
+Given('User is on New Owner page', async function () {
+    let pagename = await HomeObj.PageName.getText();
+    console.log("page name is : " + pagename);
+});
+When('User enter valid First Name, Last Name, Address, City, Telephone', async function () {
+    let firstName = testdata.userData.OwnerData.FirstName;
+    await newOwnerObj.FirstName.sendKeys(firstName);
+
+    let lastName = testdata.userData.OwnerData.LastName;
+    await newOwnerObj.LastName.sendKeys(lastName);
+
+    let address = testdata.userData.OwnerData.Address;
+    await newOwnerObj.Address.sendKeys(address);
+
+    let city = testdata.userData.OwnerData.City;
+    await newOwnerObj.City.sendKeys(city);
+
+    let telephone = testdata.userData.OwnerData.Telephone;
+    await newOwnerObj.Telephone.sendKeys(telephone);
+});
+
+
+
+When('User clicks on Add Owner button on New Owner page', async function () {
+    await newOwnerObj.AddOwnerButton.click();
+});
 
 Then('User should see Pet Details for Peter McTavish', async function () {
     let Petname = await newOwnerObj.PetName.getAttribute("innerText");
