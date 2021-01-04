@@ -1,10 +1,9 @@
 import { Given, When, Then } from "cucumber";
-import { LoginPageObjects } from "../pageObjects/LoginPageObjects";
-import { HomePageObjects } from "../pageObjects/HomePageObjects";
-import { VeterinariansObjects } from "../pageObjects/VeterinariansObjects";
+import { LoginPageObjects } from "../pageObjects/LoginPage";
+import { HomePageObjects } from "../pageObjects/HomePage";
+import { Veterinarian } from "../pageObjects/Veterinarian";
 import { browser, by, element, ElementFinder, protractor } from "protractor"
-import TestData from "../TestData/userData";
-import { newOwnerPageObject } from "../pageObjects/newOwnerPageObjects";
+import { newOwnerPageObject } from "../pageObjects/newOwnerPage";
 import testdata from "../testdata/userData";
 
 const expect = global['chai'].expect;
@@ -14,7 +13,7 @@ setDefaultTimeout(70 * 1000);
 
 let HomeObj = new HomePageObjects();
 let logObj = new LoginPageObjects();
-let vetObj = new VeterinariansObjects();
+let vetObj = new Veterinarian();
 let newOwnerObj = new newOwnerPageObject();
 
 var until = protractor.ExpectedConditions;
@@ -37,14 +36,11 @@ Given('User is on Owners tab', async function () {
     await expect("OWNERS").to.equal(Owners);
 });
 When('User clicks on ALL sub-menu', async function () {
-    await HomeObj.AllOwners.click();
-    await browser.sleep(2000);
+    await vetObj.clickOnAllOwnerSubMenu();
 });
 
 Then('Owners list should be displayed', async function () {
-    // await HomeObj.OwnerList.isDisplayed().then(async function (result) {
-    //     await expect(true).to.equal(result);
-    // });
+
     await browser.sleep(2000);
     let page = await HomeObj.PageName.getText();
     console.log(" page name is : " + page);
@@ -56,7 +52,7 @@ Given('User is on All Owners list page', async function () {
     console.log("page name is : " + pagename);
 });
 When('User clicks on Add Owner button', async function () {
-    await HomeObj.AddOwnerButton.click();
+    await vetObj.clickOnAddOwnerButton();
 });
 Then('Add New Owner page should be displayed', async function () {
     await HomeObj.PageName.isDisplayed().then(async function (result) {
@@ -138,47 +134,19 @@ When('User clicks on Add Owner button on New Owner page', async function () {
 });
 
 Then('User should see Pet Details for Peter McTavish', async function () {
-    let Petname = await newOwnerObj.PetName.getAttribute("innerText");
-    console.log("Petname :  " + Petname);
-    await expect(testdata.userData.PetDetails.Pet_Name).to.equal(Petname);
-
-    let Petbirthdate = await newOwnerObj.Pet_birthdate.getAttribute("innerText");
-    console.log("Pet BirthDate : " + Petbirthdate);
-    await expect(testdata.userData.PetDetails.PetBday).to.equal(Petbirthdate);
-
-    let PetType = await newOwnerObj.Pet_Type.getAttribute("innerText");
-    console.log("Pet Type : " + PetType);
-    await expect(testdata.userData.PetDetails.PetTypes).to.equal(PetType);
-
+    await vetObj.petDetailsForPeterMcTavish();
 });
 
 Given('User clicks on veterinarians', async function () {
-    await browser.wait(until.elementToBeClickable(vetObj.Veterinarians), 20000, 'Element is not present');
-    await vetObj.Veterinarians.click();
+    await vetObj.clickVeterian();
 });
 
 When('User clicks on ALL veterinarians', async function () {
-    await browser.wait(until.elementToBeClickable(vetObj.vetAll), 20000, 'Element is not present');
-    await vetObj.vetAll.click();
-    let pagename = await vetObj.Pagename.getText();
-    console.log("page name is : " + pagename);
+    await vetObj.clickVeterianAll();
 });
 
-
 Then('Number of radiology veterinarians will display', async function () {
- 
-    let specialties = "radiology";
-    let spec = 0;
-    await vetObj.vetListTableData.all(by.tagName("tr")).all(by.tagName("td")).each(async function (item) {
-        await item!.getText().then(async function (result) {
-            console.log(result);
-            if (result.indexOf(specialties) >= 0) {
-                spec = await spec + 1;
-                console.log("Number of", specialties, "=", spec);
-            }
-        });
-    });
-
+    await vetObj.numberOfRadiologyVeterinarians();
 });
 
 Then('User should be navigate on Owners page and added owner should be displayed at last', async function () {

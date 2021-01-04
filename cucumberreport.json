@@ -28,7 +28,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 11000000
+              "duration": 26000000
             }
           },
           {
@@ -41,7 +41,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 13894000000
+              "duration": 9222000000
             }
           },
           {
@@ -54,7 +54,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 257000000
+              "duration": 290000000
             }
           },
           {
@@ -67,7 +67,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 89000000
+              "duration": 47000000
             }
           },
           {
@@ -78,7 +78,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2000000
+              "duration": 1000000
             }
           },
           {
@@ -89,7 +89,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2000000
+              "duration": 3000000
             }
           }
         ]
@@ -129,11 +129,11 @@
             "line": 5,
             "name": "User is on Petclinic home page",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:23"
+              "location": "stepDefinations\\Main_Scenarios.ts:22"
             },
             "result": {
               "status": "passed",
-              "duration": 79000000
+              "duration": 104000000
             }
           },
           {
@@ -142,11 +142,11 @@
             "line": 6,
             "name": "User clicks on owners tab",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:29"
+              "location": "stepDefinations\\Main_Scenarios.ts:28"
             },
             "result": {
               "status": "passed",
-              "duration": 374000000
+              "duration": 439000000
             }
           },
           {
@@ -155,11 +155,11 @@
             "line": 7,
             "name": "ALL and ADD NEW owners sub-menus should be displayed",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:78"
+              "location": "stepDefinations\\Main_Scenarios.ts:74"
             },
             "result": {
               "status": "passed",
-              "duration": 451000000
+              "duration": 398000000
             }
           },
           {
@@ -169,8 +169,7 @@
               "location": "stepDefinations\\hooks.ts:17"
             },
             "result": {
-              "status": "passed",
-              "duration": 1000000
+              "status": "passed"
             }
           },
           {
@@ -211,11 +210,11 @@
             "line": 10,
             "name": "User is on Owners tab",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:34"
+              "location": "stepDefinations\\Main_Scenarios.ts:33"
             },
             "result": {
               "status": "passed",
-              "duration": 122000000
+              "duration": 175000000
             }
           },
           {
@@ -224,11 +223,11 @@
             "line": 11,
             "name": "User clicks on ADD NEW sub-menu",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:68"
+              "location": "stepDefinations\\Main_Scenarios.ts:64"
             },
             "result": {
               "status": "passed",
-              "duration": 618000000
+              "duration": 600000000
             }
           },
           {
@@ -237,11 +236,11 @@
             "line": 12,
             "name": "New Owner page should get displayed",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:71"
+              "location": "stepDefinations\\Main_Scenarios.ts:67"
             },
             "result": {
               "status": "passed",
-              "duration": 222000000
+              "duration": 190000000
             }
           },
           {
@@ -252,7 +251,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2000000
+              "duration": 1000000
             }
           },
           {
@@ -263,7 +262,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 5000000
+              "duration": 2000000
             }
           }
         ]
@@ -293,11 +292,11 @@
             "line": 15,
             "name": "User is on New Owner page",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:113"
+              "location": "stepDefinations\\Main_Scenarios.ts:109"
             },
             "result": {
               "status": "passed",
-              "duration": 171000000
+              "duration": 151000000
             }
           },
           {
@@ -306,11 +305,11 @@
             "line": 16,
             "name": "User enter valid First Name, Last Name, Address, City, Telephone",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:117"
+              "location": "stepDefinations\\Main_Scenarios.ts:113"
             },
             "result": {
               "status": "passed",
-              "duration": 2793000000
+              "duration": 2616000000
             }
           },
           {
@@ -319,11 +318,11 @@
             "line": 17,
             "name": "User clicks on Add Owner button on New Owner page",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:136"
+              "location": "stepDefinations\\Main_Scenarios.ts:132"
             },
             "result": {
               "status": "passed",
-              "duration": 368000000
+              "duration": 303000000
             }
           },
           {
@@ -332,11 +331,11 @@
             "line": 18,
             "name": "User should be navigate on Owners page and added owner should be displayed at last",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:184"
+              "location": "stepDefinations\\Main_Scenarios.ts:152"
             },
             "result": {
               "status": "passed",
-              "duration": 8937000000
+              "duration": 14045000000
             }
           },
           {
@@ -346,8 +345,7 @@
               "location": "stepDefinations\\hooks.ts:17"
             },
             "result": {
-              "status": "passed",
-              "duration": 1000000
+              "status": "passed"
             }
           },
           {
@@ -378,7 +376,8 @@
               "location": "stepDefinations\\hooks.ts:4"
             },
             "result": {
-              "status": "passed"
+              "status": "passed",
+              "duration": 1000000
             }
           },
           {
@@ -387,11 +386,11 @@
             "line": 31,
             "name": "User is on New Owner page",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:113"
+              "location": "stepDefinations\\Main_Scenarios.ts:109"
             },
             "result": {
               "status": "passed",
-              "duration": 169000000
+              "duration": 167000000
             }
           },
           {
@@ -400,11 +399,11 @@
             "line": 32,
             "name": "User clicks on Peter McTavish",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:88"
+              "location": "stepDefinations\\Main_Scenarios.ts:84"
             },
             "result": {
               "status": "passed",
-              "duration": 1872000000
+              "duration": 1609000000
             }
           },
           {
@@ -413,11 +412,11 @@
             "line": 33,
             "name": "User should see Pet Details for Peter McTavish",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:140"
+              "location": "stepDefinations\\Main_Scenarios.ts:136"
             },
             "result": {
               "status": "passed",
-              "duration": 700000000
+              "duration": 502000000
             }
           },
           {
@@ -460,7 +459,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 2000000
+              "duration": 1000000
             }
           },
           {
@@ -469,11 +468,11 @@
             "line": 36,
             "name": "User clicks on veterinarians",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:155"
+              "location": "stepDefinations\\Main_Scenarios.ts:140"
             },
             "result": {
               "status": "passed",
-              "duration": 594000000
+              "duration": 290000000
             }
           },
           {
@@ -482,11 +481,11 @@
             "line": 37,
             "name": "User clicks on ALL veterinarians",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:160"
+              "location": "stepDefinations\\Main_Scenarios.ts:144"
             },
             "result": {
               "status": "passed",
-              "duration": 1656000000
+              "duration": 1838000000
             }
           },
           {
@@ -495,11 +494,11 @@
             "line": 38,
             "name": "Number of radiology veterinarians will display",
             "match": {
-              "location": "stepDefinations\\Main_Scenarios.ts:168"
+              "location": "stepDefinations\\Main_Scenarios.ts:148"
             },
             "result": {
               "status": "passed",
-              "duration": 6589000000
+              "duration": 8162000000
             }
           },
           {

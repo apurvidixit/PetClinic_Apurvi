@@ -1,5 +1,5 @@
 import { Given, When, Then } from "cucumber";
-import { LoginPageObjects } from "../pageObjects/LoginPageObjects";
+import { LoginPageObjects } from "../pageObjects/LoginPage";
 import { browser, by, element, ElementFinder, protractor } from "protractor";
 import testdata from "../testdata/userData";
 const expect = global['chai'].expect;
