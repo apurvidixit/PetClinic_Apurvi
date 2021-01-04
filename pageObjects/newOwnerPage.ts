@@ -23,9 +23,6 @@ export class newOwnerPageObject {
 
         this.OwnerList=element(by.xpath("//*[@class='table table-striped']/tbody"));
         this.OwnerInfoTable=element(by.xpath("//*[@class='table table-striped']"));
-        this.PetName=element(by.xpath("//*[@class='table table-striped']/tr/app-pet-list/table/tr/td[1]/dl/dd[1]"));
-        this.Pet_birthdate=element(by.xpath("//*[@class='table table-striped']/tr/app-pet-list/table/tr/td[1]/dl/dd[2]"));
-        this.Pet_Type=element(by.xpath("//*[@class='table table-striped']/tr/app-pet-list/table/tr/td[1]/dl/dd[3]"));
       
     
     }

@@ -19,16 +19,14 @@ export class Veterinarian {
     private PetTypes = element(by.xpath("//*[@class='nav navbar-nav']/li[4]/a"));
     private Specialties = element(by.xpath("//*[@class='nav navbar-nav']/li[5]/a"));
 
-    
-    
-    private VeterinariansList = element(by.xpath("//*[@id='vets']/tbody"))
 
 
+    private VeterinariansList = element(by.xpath("//*[@id='vets']/tbody"));
 
     private Radiologytype = element(by.xpath("//*[@id='specialties']/option[1]"));
     private Pagename = element(by.xpath("/html/body/app-root/app-vet-list/div/div/h2"));
     private vetListTableData = element.all(by.id("vets"));
-    private AllOwners= element(by.linkText("ALL"));
+    private AllOwners = element(by.linkText("ALL"));
     private Name = element(by.xpath("//*[@id='pettypes']/thead/tr/th[1]"));
     private pageTitle = element(by.xpath("//*[@class='container xd-container']/h2"));
     private addButton = element(by.xpath("/html/body/app-root/app-pettype-list/div/div/div/button[2]"));
@@ -39,11 +37,12 @@ export class Veterinarian {
     private PetName = element(by.xpath("//*[@class='table table-striped']/tr/app-pet-list/table/tr/td[1]/dl/dd[1]"));
     private Pet_birthdate = element(by.xpath("//*[@class='table table-striped']/tr/app-pet-list/table/tr/td[1]/dl/dd[2]"));
     private Pet_Type = element(by.xpath("//*[@class='table table-striped']/tr/app-pet-list/table/tr/td[1]/dl/dd[3]"));
-
+    private WelcomeMsg = element(by.xpath("//*[contains(text(),'Welcome to Petclinic')]"));
     private Veterinarians = element(by.xpath("//*[@class='nav navbar-nav']/li[3]/a"));
-    
- 
-    private AddOwnerButton=element(by.xpath("//*[@class='btn btn-default']"));
+    private Address = element(by.xpath("//*[@id='address']"));
+    private City = element(by.xpath("//*[@id='city']"));
+    private Telephone = element(by.xpath("//*[@id='telephone']"));
+    private AddOwnerButton = element(by.xpath("//*[@class='btn btn-default']"));
 
     public async veterianAddUser() {
         await this.Veterinarians.click();
@@ -58,13 +57,42 @@ export class Veterinarian {
         await this.Veterinarians.click();
     }
 
-    
+
     public async clickOnAddOwnerButton() {
         await this.AddOwnerButton.click();
     }
     public async clickOnAllOwnerSubMenu() {
         await this.AllOwners.click();
-   
+
+    }
+    public async petClinicHomePage() {
+        await this.WelcomeMsg.isDisplayed().then(async function (result) {
+            await expect(true).to.equal(result);
+        });
+    }
+    public async clickOwners() {
+        await this.Owners.click();
+    }
+
+    public async clickAddOwners() {
+        await this.AddOwnerButton.click();
+    }
+
+    public async enterAllDetailsOwner() {
+        let firstName = testdata.userData.OwnerData.FirstName;
+        await this.FirstName.sendKeys(firstName);
+
+        let lastName = testdata.userData.OwnerData.LastName;
+        await this.LastName.sendKeys(lastName);
+
+        let address = testdata.userData.OwnerData.Address;
+        await this.Address.sendKeys(address);
+
+        let city = testdata.userData.OwnerData.City;
+        await this.City.sendKeys(city);
+
+        let telephone = testdata.userData.OwnerData.Telephone;
+        await this.Telephone.sendKeys(telephone);
     }
 
     public async clickVeterianAll() {
@@ -85,7 +113,6 @@ export class Veterinarian {
             });
         });
     }
-
     public async petDetailsForPeterMcTavish() {
         let Petname = await this.PetName.getAttribute("innerText");
         console.log("Petname :  " + Petname);

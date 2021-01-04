@@ -1,5 +1,4 @@
 import { Given, When, Then } from "cucumber";
-import { LoginPageObjects } from "../pageObjects/LoginPage";
 import { HomePageObjects } from "../pageObjects/HomePage";
 import { Veterinarian } from "../pageObjects/Veterinarian";
 import { browser, by, element, ElementFinder, protractor } from "protractor"
@@ -12,22 +11,12 @@ var { setDefaultTimeout } = require('cucumber');
 setDefaultTimeout(70 * 1000);
 
 let HomeObj = new HomePageObjects();
-let logObj = new LoginPageObjects();
 let vetObj = new Veterinarian();
 let newOwnerObj = new newOwnerPageObject();
 
 var until = protractor.ExpectedConditions;
 
 
-Given('User is on Petclinic home page', async function () {
-    await logObj.WelcomeMsg.isDisplayed().then(async function (result) {
-        await expect(true).to.equal(result);
-    });
-});
-
-When('User clicks on owners tab', async function () {
-    await HomeObj.Owners.click();
-});
 
 
 Given('User is on Owners tab', async function () {
@@ -35,25 +24,18 @@ Given('User is on Owners tab', async function () {
     console.log(" Tab name is : " + Owners);
     await expect("OWNERS").to.equal(Owners);
 });
-When('User clicks on ALL sub-menu', async function () {
-    await vetObj.clickOnAllOwnerSubMenu();
-});
+
 
 Then('Owners list should be displayed', async function () {
-
-    await browser.sleep(2000);
     let page = await HomeObj.PageName.getText();
     console.log(" page name is : " + page);
 
 });
 Given('User is on All Owners list page', async function () {
-    await browser.sleep(3000);
     let pagename = await HomeObj.PageName.getText();
     console.log("page name is : " + pagename);
 });
-When('User clicks on Add Owner button', async function () {
-    await vetObj.clickOnAddOwnerButton();
-});
+
 Then('Add New Owner page should be displayed', async function () {
     await HomeObj.PageName.isDisplayed().then(async function (result) {
         await expect(true).to.equal(result);
@@ -110,27 +92,36 @@ Given('User is on New Owner page', async function () {
     let pagename = await HomeObj.PageName.getText();
     console.log("page name is : " + pagename);
 });
-When('User enter valid First Name, Last Name, Address, City, Telephone', async function () {
-    let firstName = testdata.userData.OwnerData.FirstName;
-    await newOwnerObj.FirstName.sendKeys(firstName);
 
-    let lastName = testdata.userData.OwnerData.LastName;
-    await newOwnerObj.LastName.sendKeys(lastName);
 
-    let address = testdata.userData.OwnerData.Address;
-    await newOwnerObj.Address.sendKeys(address);
 
-    let city = testdata.userData.OwnerData.City;
-    await newOwnerObj.City.sendKeys(city);
 
-    let telephone = testdata.userData.OwnerData.Telephone;
-    await newOwnerObj.Telephone.sendKeys(telephone);
+
+Then('User should be navigate on Owners page and added owner should be displayed at last', async function () {
+
+    await browser.wait(until.visibilityOf(HomeObj.PageName), 20000, 'Taking too long to load');
+    let pagename = await HomeObj.PageName.getText();
+    console.log("page name : " + pagename);
+    await browser.refresh();
+    await browser.wait(until.visibilityOf(newOwnerObj.OwnerList), 20000, 'Taking too long to load');
+    let ownerDetails = await newOwnerObj.OwnerList.all(by.tagName("tr")).last();
+    await browser.actions().mouseMove(ownerDetails).perform();
+    let owner_Name = await ownerDetails.getText();
+    await browser.wait(until.elementToBeClickable(ownerDetails), 20000, 'Element taking too long to appear in the DOM');
+    console.log("Added owner details : " + owner_Name);
+    await expect(testdata.userData.OwnerData.OwnerDetail).to.equal(owner_Name);
+
 });
 
 
 
+
 When('User clicks on Add Owner button on New Owner page', async function () {
-    await newOwnerObj.AddOwnerButton.click();
+    await vetObj.clickAddOwners();
+});
+
+When('User enter valid First Name, Last Name, Address, City, Telephone', async function () {
+    await vetObj.enterAllDetailsOwner();
 });
 
 Then('User should see Pet Details for Peter McTavish', async function () {
@@ -149,18 +140,18 @@ Then('Number of radiology veterinarians will display', async function () {
     await vetObj.numberOfRadiologyVeterinarians();
 });
 
-Then('User should be navigate on Owners page and added owner should be displayed at last', async function () {
+Given('User is on Petclinic home page', async function () {
+    await vetObj.petClinicHomePage();
+});
 
-    await browser.wait(until.visibilityOf(HomeObj.PageName), 20000, 'Taking too long to load');
-    let pagename = await HomeObj.PageName.getText();
-    console.log("page name : " + pagename);
-    await browser.refresh();
-    await browser.wait(until.visibilityOf(newOwnerObj.OwnerList), 20000, 'Taking too long to load');
-    let ownerDetails = await newOwnerObj.OwnerList.all(by.tagName("tr")).last();
-    await browser.actions().mouseMove(ownerDetails).perform();
-    let owner_Name = await ownerDetails.getText();
-    await browser.wait(until.elementToBeClickable(ownerDetails), 20000, 'Element taking too long to appear in the DOM');
-    console.log("Added owner details : " + owner_Name);
-    await expect(testdata.userData.OwnerData.OwnerDetail).to.equal(owner_Name);
+When('User clicks on owners tab', async function () {
+    await vetObj.clickOwners();
+});
 
+When('User clicks on Add Owner button', async function () {
+    await vetObj.clickOnAddOwnerButton();
+});
+
+When('User clicks on ALL sub-menu', async function () {
+    await vetObj.clickOnAllOwnerSubMenu();
 });
