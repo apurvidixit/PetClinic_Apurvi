@@ -19,18 +19,6 @@ export class Veterinarian {
     private Pagename = element(by.xpath("/html/body/app-root/app-vet-list/div/div/h2"));
     private vetListTableData = element.all(by.id("vets"));
     private AllOwners = element(by.linkText("ALL"));
-
-    // private PetTypes = element(by.xpath("//*[@class='nav navbar-nav']/li[4]/a"));
-    // private Specialties = element(by.xpath("//*[@class='nav navbar-nav']/li[5]/a"));
-    //private VeterinariansList = element(by.xpath("//*[@id='vets']/tbody"));
-    //private Radiologytype = element(by.xpath("//*[@id='specialties']/option[1]"));
-    //private Name = element(by.xpath("//*[@id='pettypes']/thead/tr/th[1]"));
-    // private pageTitle = element(by.xpath("//*[@class='container xd-container']/h2"));
-    // private addButton = element(by.xpath("/html/body/app-root/app-pettype-list/div/div/div/button[2]"));
-    // private HomeButton = element(by.xpath("/html/body/app-root/app-pettype-list/div/div/div/button[1]"));
-    // private nameTextbox = element(by.xpath("//*[@id='name']"));
-    // private saveButton = element(by.xpath("//*[@id='pettype']/div[2]/div/button"));
-    // private listEntry = element(by.xpath("//*[@id='pettypes']/tbody/tr[6]/td[1]"));
     private PetName = element(by.xpath("//*[@class='table table-striped']/tr/app-pet-list/table/tr/td[1]/dl/dd[1]"));
     private Pet_birthdate = element(by.xpath("//*[@class='table table-striped']/tr/app-pet-list/table/tr/td[1]/dl/dd[2]"));
     private Pet_Type = element(by.xpath("//*[@class='table table-striped']/tr/app-pet-list/table/tr/td[1]/dl/dd[3]"));
@@ -144,11 +132,12 @@ export class Veterinarian {
     }
 
     public async enterAllDetailsOwner() {
+        await browser.wait(until.visibilityOf(this.FirstName), 20000, 'Taking too long to load');
         let firstName = testdata.userData.OwnerData.FirstName;
-        await this.FirstName.sendKeys(firstName);
+        await this.FirstName_field.sendKeys(firstName);
 
         let lastName = testdata.userData.OwnerData.LastName;
-        await this.LastName.sendKeys(lastName);
+        await this.LastName_field.sendKeys(lastName);
 
         let address = testdata.userData.OwnerData.Address;
         await this.Address.sendKeys(address);
